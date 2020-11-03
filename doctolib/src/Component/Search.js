@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Home from './Home';
 
 class Search extends Component {
     constructor(props) {

@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { contacts, getContactes, Search} from '../Service/DataService';
 
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    
+    render() {
+        return (
+            <div>
+                <div className="container">
+                    <h1>Réservez une consultation physique chez un professionnel de santé</h1>
 
+                </div>
+                <Search search={this.search}></Search>
 
-
-
-
-    render() { 
-        return ( 
-            <div className="container">
-                <Search onchange={(e)=>{this.search(e.target.value)}} placeholder="Votre recherche" size="large" /> 
             </div>
-         );
+
+        );
     }
 }
- 
+
 export default Home;

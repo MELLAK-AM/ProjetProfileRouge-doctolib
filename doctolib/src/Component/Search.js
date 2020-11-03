@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Home from './Home';
+
+
 
 class Search extends Component {
     constructor(props) {
@@ -10,8 +11,8 @@ class Search extends Component {
         return ( 
             <div classeName="container">
                 <div className="row">
-                    <input className="col form-control" onChange={this.changeSearch} placeholder="votre recherche"></input>
-                    <button onClick={this.valideClick} className="col-4 btn btn-primary">Valider</button>
+                    <input className="col form-control m-5" onChange={this.changeSearch} type="search" placeholder="votre recherche"></input>
+                    <button onClick={this.valideClick} className="col-2 btn btn-primary m-5">Valider</button>
                 </div>
 
             </div>

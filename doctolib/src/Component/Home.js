@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { contacts, getContactes, Search} from '../Service/DataService';
+import Search from './Search';
+import { contacts, getContactes} from '../Service/DataService';
 
 class Home extends Component {
     constructor(props) {

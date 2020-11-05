@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { ajouterContact} from '../Service/DataService';
+import { ajouterContact, isLogged} from '../Service/Server';
 
 
 
@@ -18,9 +18,8 @@ const FormPraticien = (props) => {
 
     const changeField = (e) => {
         let tmpContact = { ...contact }
-        tmpContact[e.target.getAttribute("name")] = e.target.valueset
-        setState(tmpContact)
-
+        tmpContact[e.target.getAttribute("name")] = e.target.value
+        setContact(tmpContact)
     }
 
     const validForm = (e) => {

@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { ajouterContact, isLogged} from '../Service/Server';
+import { ajouterContact, isLogged} from '../Service/DataService';
 
 
 

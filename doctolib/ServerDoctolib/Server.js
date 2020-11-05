@@ -1,6 +1,6 @@
 const http = require("http");
 
-const Contacts = [];
+const contacts = [];
 let compteur = 0;
 
 const express = require("express");
@@ -50,7 +50,7 @@ app.get('/contact/:id', (req, res)=>{
 app.post('/contact', (req,res)=> {
 let contact = {...req.body};
 contact.id = ++compteur;
-Contacts.push(contact)
+contacts.push(contact)
 res.json({
      error:false,
      id : contact.id

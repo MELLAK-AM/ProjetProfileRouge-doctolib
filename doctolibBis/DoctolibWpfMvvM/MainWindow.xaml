@@ -9,17 +9,19 @@
     <StackPanel>
         <Menu>
             <MenuItem Header="Gestion" Command="{Binding GestionCommand}">
-                <MenuItem Header="Gestion des patiens" Command="{Binding PatientCommand}"/>
-                <MenuItem Header="Gestion des praticiens" Command="{Binding PraticienCommand}"/>
-                <MenuItem Header="Gestion des rdv" Command="{Binding RdvCommand}"/>
+                <MenuItem Header="Gestion des patiens" Command="{Binding PatientCommand}" CommandParameter="{Binding ElementName=Result}"/>
+                <MenuItem Header="Gestion des praticiens" Command="{Binding PraticienCommand}" CommandParameter="{Binding ElementName=Result}"/>
+                <MenuItem Header="Gestion des rdv" Command="{Binding RdvCommand}" CommandParameter="{Binding ElementName=Result}"/>
             </MenuItem>
-
             <MenuItem Header="Consultation" Command="{Binding ConsultationCommand}">
-                <MenuItem Header="Afficher" Command="{Binding AfficherCommand}"/>
-                <MenuItem Header="Prendre un RDV" Command="{Binding TakeRdvCommand}"/>
-                <MenuItem Header="RDV du patient" Command="{Binding RdvPatientCommand}"/>
+                <MenuItem Header="Afficher" Command="{Binding AfficherCommand}" CommandParameter="{Binding ElementName=Result}"/>
+                <MenuItem Header="Prendre un RDV" Command="{Binding TakeRdvCommand}" CommandParameter="{Binding ElementName=Result}"/>
+                <MenuItem Header="RDV du patient" Command="{Binding RdvPatientCommand}" CommandParameter="{Binding ElementName=Result}"/>
             </MenuItem>
             <MenuItem Header="Quitter" Command="{Binding ExitCommand}"/>
         </Menu>
+        <StackPanel x:Name="Result">
+
+        </StackPanel>
     </StackPanel>
 </Window>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="DoctolibWpfMvvM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoctolibWpfMvvM"
+        mc:Ignorable="d"
+        Title="Doctolib" Height="450" Width="800">
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="Gestion" Command="{Binding GestionCommand}">
+                <MenuItem Header="Gestion des patiens" Command="{Binding PatientCommand}"/>
+                <MenuItem Header="Gestion des praticiens" Command="{Binding PraticienCommand}"/>
+                <MenuItem Header="Gestion des rdv" Command="{Binding RdvCommand}"/>
+            </MenuItem>
+
+            <MenuItem Header="Consultation" Command="{Binding ConsultationCommand}">
+                <MenuItem Header="Afficher" Command="{Binding AfficherCommand}"/>
+                <MenuItem Header="Prendre un RDV" Command="{Binding TakeRdvCommand}"/>
+                <MenuItem Header="RDV du patient" Command="{Binding RdvPatientCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Quitter" Command="{Binding ExitCommand}"/>
+        </Menu>
+    </StackPanel>
+</Window>

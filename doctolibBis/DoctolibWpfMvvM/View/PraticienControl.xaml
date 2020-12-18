@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="DoctolibWpfMvvM.View.PraticienControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoctolibWpfMvvM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="956">
+    <StackPanel Orientation="Horizontal">
+        <GroupBox Header="Gestion des praticiens" Width="600" >
+            <StackPanel>
+                <Label Content="Code :" Margin="5" />
+                <TextBox Text="{Binding Id}" Margin="10" Padding ="5" Height="30"/>
+                <Label Content="Nom :" Margin="5" />
+                <TextBox Text="{Binding Nom}" Margin="10" Padding ="5" Height="30"/>
+                <Label Content="Telephoe :" Margin="5" />
+                <TextBox Text="{Binding telephone}" Margin="10" Padding ="5" Height="30"/>
+                <Label Content="Date d'embauche :" Margin="5" />
+                <DatePicker SelectedDate="{Binding DateEmbauche}"  Margin="10" Padding ="5" Height="30"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Spécialité :" Margin="5,10,5,10" />
+                    <ComboBox ItemsSource="{Binding Specialites}" SelectedItem="{Binding Specialite}"  Margin="5,15,5,15" Padding="100" Width="498" Height="27"/>
+                </StackPanel>
+                
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox  Width="356">
+            <StackPanel>
+                <Grid>
+                    <Button Command ="{Binding NewCommand}" Content="Nouveau" Padding="5" Margin="64,80,64,450"/>
+                    <Button Command ="{Binding SearchCommand}" Content="Rechercher" Padding="5" Margin="64,130,64,400"/>
+                    <Button Command ="{Binding AddCommand}" Content="Ajouter" Padding="5" Margin="64,180,64,350"/>
+                    <Button Command ="{Binding UpCommand}" Content="Modifier" Padding="5" Margin="64,230,64,300"/>
+                    <Button Command ="{Binding DeleteCommand}" Content="Supprimer" Padding="5" Margin="64,280,64,250"/>
+                    <Button Command ="{Binding ExitCommand}" Content="Quitter" Padding="5" Margin="64,330,64,200"/>
+                </Grid>
+            </StackPanel>
+
+        </GroupBox>
+
+    </StackPanel>
+</UserControl>

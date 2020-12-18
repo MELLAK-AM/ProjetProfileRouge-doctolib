@@ -11,7 +11,8 @@ const FormPraticien = (props) => {
         prenom: '',
         adresse: '',
         telephone: '',
-        email: ''
+        email: '',
+        images : []
 
     })
 
@@ -26,7 +27,7 @@ const FormPraticien = (props) => {
         e.preventDefault()
         ajouterContact(contact).then(res => {
             if (!res.data.error) {
-                props.history.push('/detail/' + res.data.id)
+                props.history.push('/detailRdv/' + res.data.id)
             }
         })
     }
@@ -36,6 +37,9 @@ const FormPraticien = (props) => {
 
     return (
         <form className="container" onSubmit={validForm} >
+             <div className="row m-1">
+                <img src={this.props.contact.images} name="Image" onChange={changeField} className="form-control col" />
+            </div>
             <div className="row m-1">
                 <input type="text" name="Nom" onChange={changeField} className="form-control col" placeholder="Nom" />
             </div>

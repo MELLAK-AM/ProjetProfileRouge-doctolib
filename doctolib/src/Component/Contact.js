@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 const Contact = (props) => {
-    const contact = props.contact
+    const contact = this.props.contact
     return (
      <div className="container">
         <div classeName="row">
@@ -37,8 +37,8 @@ const Contact = (props) => {
         </div>
 
         <div className="col-2">
-                <Link className="btn btn-primary" to={'/calandar/' + contact.id}>Prise de RDV</Link>
-         </div>
+                <Link to={'/detailRdv/' + contact.id}>Prise de RDV</Link>
+         </div>  
 
 
      </div>

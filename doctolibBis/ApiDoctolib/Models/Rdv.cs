@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace DoctolibWpfMvvM.Models
+namespace ApiDoctolib.Models
 {
     public class Rdv
     {

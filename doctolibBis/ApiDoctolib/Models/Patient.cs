@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DoctolibWpfMvvM.Models
+namespace ApiDoctolib.Models
 {
     public class Patient
     {

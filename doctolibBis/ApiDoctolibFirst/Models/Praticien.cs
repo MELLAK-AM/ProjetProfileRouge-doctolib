@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ApiDoctolib.Models
+namespace ApiDoctolibFirst.Models
 {
     public class Praticien
     {
@@ -32,22 +32,10 @@ namespace ApiDoctolib.Models
         }
         public static List<Praticien> Search(string search)
         {
-            List<Praticien> praticiens = new List<Praticien>(
-                search != null ?
+            return new List<Praticien>(
                 DataDbContext.Instance.Praticiens.Include(p => p.Images)
-                .Where(p => p.Nom.Contains(search) || p.Specialite.Contains(search))
-                 : DataDbContext.Instance.Praticiens.Include(p => p.Images));
-            praticiens.ForEach(p =>
-            {
-                p.Images.ForEach(i =>
-                {
-                    if (!i.Url.Contains("http://localhost:58581/"))
-                    {
-                        i.Url = "http://localhost:58581/" + i.Url;
-                    }
-                });
-            });
-            return praticiens;
+                .Where(p => p.Nom.Contains(search) || p.Specialite.Contains(search)));
+    
         }
 
         public static Praticien GetPraticien(int id)

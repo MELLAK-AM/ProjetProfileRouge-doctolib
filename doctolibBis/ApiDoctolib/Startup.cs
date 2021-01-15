@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ApiAnnonce.Services;
-using ApiDoctolib.Models;
 using ApiDoctolib.Services;
+using ApiDoctolib.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -57,7 +56,7 @@ namespace ApiDoctolib
                     builder.Requirements.Add(new ConnectRequirement("admin"));
                 });
             });
-            services.AddCors(options =>
+            services.AddCors(options =>  
             {
                 options.AddPolicy("all", builder =>
                 {

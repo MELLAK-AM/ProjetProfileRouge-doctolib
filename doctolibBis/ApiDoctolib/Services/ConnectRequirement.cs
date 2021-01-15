@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiAnnonce.Services
+namespace ApiDoctolib.Services
 {
     public class ConnectRequirement : IAuthorizationRequirement
     {

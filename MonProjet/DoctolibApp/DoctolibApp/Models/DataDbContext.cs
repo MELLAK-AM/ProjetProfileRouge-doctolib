@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ApiDoctolib.Models
+namespace DoctolibApp.Models
 {
-    public class DataDbContext : DbContext
+    public class DataDbContext :DbContext
     {
         private static DataDbContext _instance = null;
         public DbSet<Praticien> Praticiens { get; set; }
-        public DbSet<Patient> Patients { get; set; }
         public DbSet<Utilisateur> Utilisateurs { get; set; }
 
         public DataDbContext()
@@ -30,9 +30,11 @@ namespace ApiDoctolib.Models
             }
         }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer(@"Data Source=(LocalDb)\coursM2I;Integrated Security=True");
+            builder.UseSqlServer(@"Data Source=(Localdb)\doctolib;Integrated Security=True");
         }
     }
+
 }

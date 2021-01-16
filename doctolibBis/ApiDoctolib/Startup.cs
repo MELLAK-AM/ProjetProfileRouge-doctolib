@@ -34,28 +34,29 @@ namespace ApiDoctolib
             services.AddDbContext<DataDbContext>((options) => {
                 options.UseSqlServer(Configuration.GetConnectionString("default"));
             });
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = true,
-                    ValidateLifetime = true,
-                    ValidIssuer = Configuration.GetValue<string>("jwt:issuer"),
-                    ValidAudience = Configuration.GetValue<string>("jwt:audience"),
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("jwt:key")))
-                };
-            });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("connect", builder =>
-                {
-                    builder.Requirements.Add(new ConnectRequirement());
-                });
-                options.AddPolicy("admin", builder =>
-                {
-                    builder.Requirements.Add(new ConnectRequirement("admin"));
-                });
-            });
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            //{
+            //    options.TokenValidationParameters = new TokenValidationParameters()
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateLifetime = true,
+            //        ValidIssuer = Configuration.GetValue<string>("jwt:issuer"),
+            //        ValidAudience = Configuration.GetValue<string>("jwt:audience"),
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("jwt:key")))
+            //    };
+            //});
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("connect", builder =>
+            //    {
+            //        builder.Requirements.Add(new ConnectRequirement());
+            //    });
+            //    options.AddPolicy("admin", builder =>
+            //    {
+            //        builder.Requirements.Add(new ConnectRequirement("admin"));
+            //    });
+            //});
+
             services.AddCors(options =>  
             {
                 options.AddPolicy("all", builder =>
@@ -78,10 +79,10 @@ namespace ApiDoctolib
             }
 
             app.UseRouting();
-            app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseCors();
             app.UseStaticFiles();
-            app.UseAuthorization();
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -25,28 +25,28 @@ namespace ApiDoctolib.Controllers
                 _upload = upload;
             }
             [HttpGet("filter/{search}")]
-            [Authorize("connect")]
+            //[Authorize("connect")]
             public List<Praticien> Get(string search)
             {
                 return Praticien.Search(search);
             }
 
             [HttpGet]
-            [Authorize("connect")]
+           // [Authorize("connect")]
             public List<Praticien> Get()
             {
                 return Praticien.Search(null);
             }
 
             [HttpGet("{id}")]
-            [Authorize("connect")]
+           // [Authorize("connect")]
             public Praticien Get(int id)
             {
                 return Praticien.GetPraticien(id);
             }
 
             [HttpPost]
-            [Authorize("admin")]
+           // [Authorize("admin")]
             public Praticien Post([FromForm] Praticien praticien, [FromForm] IFormFile image)
             {
                 praticien.Images.Add(new Image() { Url = _upload.Upload(image) });
@@ -55,7 +55,7 @@ namespace ApiDoctolib.Controllers
             }
 
             [HttpPut("{id}/images")]
-            [Authorize("admin")]
+           // [Authorize("admin")]
             public Praticien Put(int id, [FromForm] IFormFile image)
             {
                 Praticien praticien = Praticien.GetPraticien(id);

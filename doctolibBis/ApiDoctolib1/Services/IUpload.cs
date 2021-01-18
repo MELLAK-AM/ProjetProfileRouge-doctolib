@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DoctolibApp.Services
+namespace ApiDoctolib1.Services
 {
-   public  interface IUpload
+    public interface IUpload
     {
         string Upload(IFormFile image);
     }

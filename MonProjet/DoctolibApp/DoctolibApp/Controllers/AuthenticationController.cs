@@ -10,20 +10,19 @@ namespace DoctolibApp.Controllers
 {
     public class AuthenticationController : Controller
     {
-        private ILogin _login;
+
+        public ILogin _login;
 
         public AuthenticationController(ILogin login)
         {
             _login = login;
         }
 
-
         public IActionResult Login(string message)
         {
             ViewBag.Message = message;
             return View();
         }
-
 
         public async Task<IActionResult> SubmitLogin(Utilisateur utilisateur)
         {
@@ -33,18 +32,16 @@ namespace DoctolibApp.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Authentication", new {​​ message = "Erreur d'authentification" }​​);
+                return RedirectToAction("Login", "Authentication");
             }
 
         }
-
-
 
         public async Task<IActionResult> LogOut()
         {
             await _login.LogOut();
             return RedirectToAction("Index", "Praticien");
         }
-
+       
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoctolibApp.Services
 {
-    public class RdvCookiService : IRdv
+    public class RdvCookieService : IRdv
     {
         public bool AddRdv(int id)
         {

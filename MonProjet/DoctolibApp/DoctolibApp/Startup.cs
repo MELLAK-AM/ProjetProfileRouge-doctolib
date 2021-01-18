@@ -35,25 +35,26 @@ namespace DoctolibApp
             services.AddTransient<ILogin, LoginService>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => {
-                    options.LoginPath = new PathString("/authentication/login");
-                    options.AccessDeniedPath = new PathString("/authentication/denied");
-                    options.ExpireTimeSpan = TimeSpan.FromDays(1);
-                });
+                   .AddCookie(options =>
+                   {
+                       options.LoginPath = new PathString("/authentication/login");
+                       options.AccessDeniedPath = new PathString("/authentication/denied");
+                       options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                   });
 
             services.AddAuthorization(options =>
-            {
-                options.AddPolicy("connect", policy =>
-                {
+             {
+                 options.AddPolicy("connect", policy =>
+                 {
                     //policy.RequireClaim(ClaimTypes.Email);
                     policy.Requirements.Add(new ConnectRequirement());
-                });
-                options.AddPolicy("connectAdmin", policy =>
-                {
+                 });
+                 options.AddPolicy("connectAdmin", policy =>
+                 {
                     //policy.RequireClaim(ClaimTypes.Email);
                     policy.Requirements.Add(new ConnectRequirement("admin"));
-                });
-            });
+                 });
+             });
             services.AddScoped<IAuthorizationHandler, CustomAuthorizationHandler>();
 
             //services.AddAll();

@@ -14,7 +14,7 @@ namespace DoctolibApp.Services
     {
 
         private IHttpContextAccessor _accessor;
-        private LoginService(IHttpContextAccessor accessor)
+        public LoginService(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
         }
